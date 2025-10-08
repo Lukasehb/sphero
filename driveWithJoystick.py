@@ -216,6 +216,12 @@ class SpheroController:
                         self.display_number(api)
 
 
+                        if(self.joystick.get_button(buttons['5'])==1 ): 
+                            self.move(api, self.base_heading + 22,0)
+                        elif (self.joystick.get_button(buttons['6'])==1 ): 
+                            self.move(api, self.base_heading - 22,0)
+
+
 
 
                     if Y < -0.7:
