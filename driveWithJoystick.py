@@ -211,15 +211,34 @@ class SpheroController:
                         self.display_number(api)
 
                     if (self.joystick.get_button(buttons['4']) == 1):
-                        self.speed = 255
+                        self.speed = 200
                         self.color = Color(r=255, g=0, b=0)
                         self.display_number(api)
+                        
+                    if self.joystick.get_button(buttons['R1']) == 1:
+                       #   Temporary speed boost
+                       self.speed = min(200, self.speed + 50)  # boost
+                       self.color = Color(r=255, g=0, b=255)   # purple to indicate boost
+                       self.display_number(api)
 
+                    if self.joystick.get_button(buttons['L1']) == 1:
+                       # Slow mode for precision
+                       self.speed = 30
+                       self.color = Color(r=0, g=255, b=255)   # cyan to indicate slow mode
+                       self.display_number(api)
+                       
+                     # Manual turning with L2 and R2
+                    if self.joystick.get_button(buttons['L2']) == 1:
+                        # Turn left
+                        self.base_heading -= 5  # degrees per loop iteration
+                        self.move(api, self.base_heading, self.speed)
 
-                        if(self.joystick.get_button(buttons['5'])==1 ): 
-                            self.move(api, self.base_heading + 22,0)
-                        elif (self.joystick.get_button(buttons['6'])==1 ): 
-                            self.move(api, self.base_heading - 22,0)
+                    elif self.joystick.get_button(buttons['R2']) == 1:
+                         # Turn right
+                         self.base_heading += 5  # degrees per loop iteration
+                         self.move(api, self.base_heading, self.speed)
+  
+ 
 
 
 
