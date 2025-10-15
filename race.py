@@ -227,20 +227,37 @@ class SpheroController:
                         self.base_heading += 0  
 
                         self.move(api, self.base_heading + 90, self.speed)
-                        time.sleep(4)
+                        time.sleep(5)
                         api.set_speed(0)
                         self.base_heading += 90 
 
                         self.move(api, self.base_heading + 90, self.speed)
-                        time.sleep(2)
+                        time.sleep(3)
                         api.set_speed(0)
                         self.base_heading += 90  
 
                         self.move(api, self.base_heading - 90, self.speed)
-                        time.sleep(9)
+                        time.sleep(10)
                         self.base_heading -= 90  
                         
+                        self.move(api, self.base_heading - 90, self.speed)
+                        time.sleep(3)
+                        self.base_heading -= 90 
+
                         self.move(api, self.base_heading + 90, self.speed)
+                        time.sleep(3)
+                        api.set_speed(0)
+                        self.base_heading += 90 
+
+                        self.move(api, self.base_heading + 90, self.speed)
+                        time.sleep(5)
+                        api.set_speed(0)
+                        self.base_heading += 90
+
+                        self.move(api, self.base_heading + 90, self.speed)
+                        time.sleep(10)
+                        api.set_speed(0)
+                        self.base_heading += 90 
 
 
 
