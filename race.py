@@ -6,6 +6,7 @@ from spherov2.types import Color
 from spherov2.sphero_edu import SpheroEduAPI
 from spherov2.commands.power import Power
 import math
+import time
 
 '''
 SB-9DD8 1
@@ -216,27 +217,14 @@ class SpheroController:
                         self.display_number(api)
                         
                     if self.joystick.get_button(buttons['R1']) == 1:
-                       #   Temporary speed boost
-                       self.speed = min(200, self.speed + 50)  # boost
-                       self.color = Color(r=255, g=0, b=255)   # purple to indicate boost
-                       self.display_number(api)
+                        self.color = Color(r=0, g=0, b=255)
+                        self.base_heading = 0
+                        self.speed = 100
+                        time.sleep(2)
+                        
+                        
 
-                    if self.joystick.get_button(buttons['L1']) == 1:
-                       # Slow mode for precision
-                       self.speed = 30
-                       self.color = Color(r=0, g=255, b=255)   # cyan to indicate slow mode
-                       self.display_number(api)
-                       
-                     # Manual turning with L2 and R2
-                    if self.joystick.get_button(buttons['L2']) == 1:
-                        # Turn left
-                        self.base_heading -= 5  # degrees per loop iteration
-                        self.move(api, self.base_heading, self.speed)
 
-                    elif self.joystick.get_button(buttons['R2']) == 1:
-                         # Turn right
-                         self.base_heading += 5  # degrees per loop iteration
-                         self.move(api, self.base_heading, self.speed)
   
  
 
