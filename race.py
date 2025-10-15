@@ -219,26 +219,26 @@ class SpheroController:
                     if (self.joystick.get_button(buttons['R1']) == 1):
                         api.set_heading(0)
                         self.color = Color(r=0, g=0, b=255)
-                        self.speed = 125
+                        self.speed = 60
 
                         self.move(api, self.base_heading, self.speed)
-                        time.sleep(3)
+                        time.sleep(6)
                         api.set_speed(0)
-                        self.base_heading += 0  # First move, no change
+                        self.base_heading += 0  
+
+                        self.move(api, self.base_heading + 90, self.speed)
+                        time.sleep(4)
+                        api.set_speed(0)
+                        self.base_heading += 90 
 
                         self.move(api, self.base_heading + 90, self.speed)
                         time.sleep(2)
                         api.set_speed(0)
-                        self.base_heading += 90  # Update heading after turn
-
-                        self.move(api, self.base_heading + 90, self.speed)
-                        time.sleep(1)
-                        api.set_speed(0)
-                        self.base_heading += 90  # Update heading after turn
+                        self.base_heading += 90  
 
                         self.move(api, self.base_heading - 90, self.speed)
-                        time.sleep(4.5)
-                        self.base_heading -= 90  # Update heading after turn
+                        time.sleep(9)
+                        self.base_heading -= 90  
                         
                         self.move(api, self.base_heading + 90, self.speed)
 
