@@ -224,21 +224,42 @@ class SpheroController:
                         self.move(api, self.base_heading, self.speed)
                         time.sleep(6)
                         api.set_speed(0)
-                        self.base_heading += 0  
+                        self.base_heading += 0  # Still 0
 
                         self.move(api, self.base_heading + 90, self.speed)
                         time.sleep(5)
                         api.set_speed(0)
-                        self.base_heading += 90 
+                        self.base_heading += 90  # Now 90
 
                         self.move(api, self.base_heading + 90, self.speed)
                         time.sleep(3)
                         api.set_speed(0)
-                        self.base_heading += 90  
+                        self.base_heading += 90  # Now 180
 
                         self.move(api, self.base_heading + 90, self.speed)
                         time.sleep(10)
-                        self.base_heading += 90  
+                        api.set_speed(0)
+                        self.base_heading += 90  # Now 270
+
+                        self.move(api, self.base_heading - 90, self.speed)
+                        time.sleep(3)
+                        api.set_speed(0)
+                        self.base_heading -= 90  # Now 180
+
+                        self.move(api, self.base_heading + 90, self.speed)
+                        time.sleep(3)
+                        api.set_speed(0)
+                        self.base_heading += 90  # Now 270
+
+                        self.move(api, self.base_heading + 90, self.speed)
+                        time.sleep(5)
+                        api.set_speed(0)
+                        self.base_heading += 90  # Now 360 or 0
+
+                        self.move(api, self.base_heading + 90, self.speed)
+                        time.sleep(10)
+                        api.set_speed(0)
+                        self.base_heading += 90  # Now 90
                         
                         self.move(api, self.base_heading - 90, self.speed)
                         time.sleep(3)
