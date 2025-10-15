@@ -221,7 +221,7 @@ class SpheroController:
                         self.color = Color(r=0, g=0, b=255)
                         self.speed = 125
                         self.move(api, self.base_heading, self.speed)  
-                        time.sleep(5)                                 
+                        time.sleep(3)                                 
                         api.set_speed(0)
                         self.speed = 125
                         self.move(api, self.base_heading + 90, self.speed)
