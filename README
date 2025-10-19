@@ -1,0 +1,23 @@
+**README – race.py (Raspberry Pi Robot Navigatie)**
+
+**1. Kalibratiestappen**
+
+* Plaats de robot op het startpunt van het parcours.
+* Draai de robot **handmatig met de controller** naar de juiste begindirection.
+* Controleer visueel dat de robot correct is uitgelijnd.
+* Indien nodig: pas in `race.py` de initiële waarde van `self.base_heading` aan.
+* Start pas de sequentie als de richting stabiel is.
+
+**2. Beschrijving van de aanpak**
+
+* De route is opgebouwd uit **lineaire segmenten** met een **nieuw waypoint bij elke bocht**.
+* Elke beweging heeft een vaste duur, waarna de robot stopt, de heading aanpast (+90° of –90°), en verder rijdt.
+* De heading wordt cumulatief beheerd via `self.base_heading` om richtingconsistentie te behouden.
+* **Snelheid:** laag ingesteld (`speed = 60`) voor nauwkeurige controle.
+* Bewegingen zijn tijdgestuurd (`time.sleep`) en niet sensorafhankelijk.
+* `api.set_speed(0)` stopt telkens de motor voor headingcorrectie.
+
+**3. Opmerkingen**
+
+* Tijdsintervallen kunnen worden aangepast aan motorprestaties of terrein.
+* Ontworpen voor gecontroleerde testsituaties zonder autonome correctie of sensorinput.
